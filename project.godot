@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Pokemon Game"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=980
+window/size/viewport_height=520
+
+[layer_names]
+
+2d_render/layer_1="chao"
+2d_render/layer_2="Obstaculos"
+2d_render/layer_3="Player L2"
+2d_render/layer_4="Lava "
+2d_render/layer_5="Boss"
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Chao"
+2d_physics/layer_3="Obstaculo"
+2d_physics/layer_4="item"
+2d_physics/layer_5="Item L2"
+2d_physics/layer_6="Player L2"
+2d_physics/layer_7="Lava"
+2d_physics/layer_8="End House"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://2t3pl0tt5jnd"]
+
+[ext_resource type="Script" path="res://Scripts/zonade_morte.gd" id="1_1cgqk"]
+[ext_resource type="Texture2D" uid="uid://c3rtm28aee2nt" path="res://graphics/monsters/Cindrill.png" id="2_4rppy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v0wa"]
+atlas = ExtResource("2_4rppy")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07vtd"]
+atlas = ExtResource("2_4rppy")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuvru"]
+atlas = ExtResource("2_4rppy")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi5ju"]
+atlas = ExtResource("2_4rppy")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33oya"]
+atlas = ExtResource("2_4rppy")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28elq"]
+atlas = ExtResource("2_4rppy")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v0tu"]
+atlas = ExtResource("2_4rppy")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqrmu"]
+atlas = ExtResource("2_4rppy")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8y88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v0wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07vtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuvru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi5ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33oya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28elq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v0tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqrmu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw73u"]
+size = Vector2(104, 112)
+
+[node name="ZonadeMorte" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_1cgqk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, 9.53674e-07)
+scale = Vector2(0.875, 0.875)
+sprite_frames = SubResource("SpriteFrames_g8y88")
+autoplay = "default"
+frame_progress = 0.733859
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-20, 0)
+shape = SubResource("RectangleShape2D_mw73u")
+debug_color = Color(0.93262, 0.236422, 0.282437, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

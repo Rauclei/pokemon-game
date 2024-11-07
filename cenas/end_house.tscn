@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://by0t24juuwl8"]
+
+[ext_resource type="Texture2D" uid="uid://d3spmdybdbr1t" path="res://graphics/objects/arena_water.png" id="1_17hqf"]
+[ext_resource type="Script" path="res://Scripts/end_house.gd" id="1_vyduh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4puu6"]
+size = Vector2(64, 80)
+
+[node name="End House" type="Area2D"]
+script = ExtResource("1_vyduh")
+
+[node name="ArenaWater" type="Sprite2D" parent="."]
+position = Vector2(-40, -64)
+texture = ExtResource("1_17hqf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-40, 104)
+shape = SubResource("RectangleShape2D_4puu6")
+debug_color = Color(0.93262, 0.236422, 0.282437, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

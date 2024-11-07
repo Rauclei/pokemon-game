@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://cqaxvpc7wfm88"]
+
+[ext_resource type="Script" path="res://cenas/obstaculo.gd" id="1_agnci"]
+[ext_resource type="Texture2D" uid="uid://otm0upd07vcb" path="res://Assets/graphics/monsters/Atrox.png" id="2_wnwsl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o6fs"]
+atlas = ExtResource("2_wnwsl")
+region = Rect2(577, 188, 191, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4jc3"]
+atlas = ExtResource("2_wnwsl")
+region = Rect2(385, 188, 191, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hti8b"]
+atlas = ExtResource("2_wnwsl")
+region = Rect2(193, 188, 191, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_136p5"]
+atlas = ExtResource("2_wnwsl")
+region = Rect2(1, 188, 191, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oic33"]
+atlas = ExtResource("2_wnwsl")
+region = Rect2(577, 7, 191, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlqpc"]
+atlas = ExtResource("2_wnwsl")
+region = Rect2(385, 7, 191, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2xf"]
+atlas = ExtResource("2_wnwsl")
+region = Rect2(193, 7, 191, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sgaq"]
+atlas = ExtResource("2_wnwsl")
+region = Rect2(1, 7, 191, 181)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pesut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o6fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4jc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hti8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_136p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oic33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlqpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sgaq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1yty"]
+size = Vector2(80, 72)
+
+[node name="Obstaculo" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_agnci")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 1.90735e-06)
+scale = Vector2(0.670157, 0.618785)
+sprite_frames = SubResource("SpriteFrames_pesut")
+autoplay = "default"
+frame_progress = 0.553578
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-24, 4)
+shape = SubResource("RectangleShape2D_a1yty")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
